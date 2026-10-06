@@ -1,0 +1,675 @@
+/* =========================================================
+   FONTS
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --mute: #6b6b6b;
+  --line: #0a0a0a;
+
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0a0a;
+    --fg: #ffffff;
+    --mute: #9a9a9a;
+    --line: #ffffff;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --fg: #ffffff;
+  --mute: #9a9a9a;
+  --line: #ffffff;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+
+  padding: 20px 40px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navlinks button {
+  padding: 4px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--mute);
+  cursor: pointer;
+}
+
+.navlinks button:hover,
+.navlinks button.active {
+  color: var(--fg);
+}
+
+.navlinks button.active {
+  border-bottom-color: var(--fg);
+}
+
+
+/* =========================================================
+   PAGE LAYOUT
+   ========================================================= */
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 52px 24px 100px;
+}
+
+.divider {
+  margin: 56px 0;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: 56px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+  padding-top: 18px;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+h1.hero {
+  margin-bottom: 18px;
+  font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+  line-height: 1.15;
+}
+
+p.lead {
+  max-width: 52ch;
+  color: var(--mute);
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 8px;
+
+  overflow: hidden;
+  color: var(--mute);
+  font-size: 0.85rem;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo svg {
+  opacity: 0.5;
+}
+
+.photo-hero {
+  width: 220px;
+  height: 220px;
+  margin-left: auto;
+  border-radius: 50%;
+}
+
+.photo-about {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.photo-secondary {
+  width: 100%;
+  aspect-ratio: 4 / 3; 
+  /* clip-path: inset(50px 0 0 0); */
+  background: var(--bg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.photo-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   ABOUT / BIO
+   ========================================================= */
+
+.section-kicker {
+  margin-bottom: 10px;
+  color: var(--mute);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.85fr);
+  align-items: start;
+  gap: 48px;
+}
+
+.intro-section h2 {
+  max-width: 13ch;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.12;
+}
+
+.bio {
+  max-width: 48ch;
+  margin: 0;
+  color: var(--mute);
+}
+
+.about-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  margin-top: 64px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr);
+  align-items: start;
+  gap: 40px;
+}
+
+.about-portrait {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-text {
+  min-width: 0;
+  text-align: left;
+}
+
+.about-text p {
+  margin: 0 0 20px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-copy {
+  max-width: 44ch;
+}
+
+.about-copy p {
+  margin: 0 0 22px;
+}
+
+.about-copy code {
+  font-size: 0.86em;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 24px;
+}
+
+.skills span:not(:last-child)::after {
+  content: '·';
+  margin-left: 18px;
+  color: var(--mute);
+}
+
+
+/* =========================================================
+   FEATURED PROJECT
+   ========================================================= */
+
+.favorite-project {
+  margin-top: 8px;
+}
+
+.project-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.project-heading h2 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.project-label {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+
+  color: var(--mute);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.project-feature {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 330px;
+  border: 1px solid var(--line);
+}
+
+.project-feature-image {
+  min-height: 330px;
+  padding: 12px;
+  background: var(--fg);
+  overflow: hidden;
+}
+
+.project-feature-image-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+
+  border: 1px dashed var(--bg);
+  color: var(--bg);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+}
+
+.project-feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.project-meta {
+  margin-bottom: 14px;
+  color: var(--mute);
+  font-size: 0.8rem;
+}
+
+.project-feature-copy h3 {
+  margin-bottom: 14px;
+  font-size: 1.65rem;
+  line-height: 1.2;
+}
+
+.project-feature-copy p {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.98rem;
+}
+
+.learn-more {
+  width: max-content;
+  margin-top: 22px;
+  padding: 0;
+  background: none;
+  border: none;
+
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--fg);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   PROJECT DETAILS
+   ========================================================= */
+
+.project {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project:last-child {
+  border-bottom: none;
+}
+
+.project h3 {
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+}
+
+.project .tag {
+  color: var(--mute);
+  font-size: 0.85rem;
+}
+
+.project .num {
+  flex-shrink: 0;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.back-link {
+  margin-bottom: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--mute);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.detail-meta {
+  margin-bottom: 24px;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.detail-list {
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.detail-list li {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   OTHER COMPONENTS
+   ========================================================= */
+
+.model-viewer-wrap {
+  width: 100%;
+  height: 420px;
+  margin: 28px 0;
+  border: 1px solid var(--line);
+  --poster-color: transparent;
+}
+
+.model-viewer-wrap model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.contact-row a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 80vh;
+  margin-top: 28px;
+  border: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   RESUME
+   ========================================================= */
+
+.resume-section {
+  margin-top: 32px;
+}
+
+.resume-section h3 {
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+.resume-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px 24px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-experience-item {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.resume-experience-item h4 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.resume-experience-org {
+  margin: 0 0 8px;
+  color: var(--mute);
+}
+
+.resume-experience-item p:last-child {
+  margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding: 40px 0 48px;
+  color: var(--mute);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  main {
+    padding: 36px 20px 72px;
+  }
+
+  .intro-section,
+  .about-card,
+  .about-layout,
+  .project-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    gap: 28px;
+    margin-top: 48px;
+  }
+
+  .about-portrait {
+    position: static;
+    justify-content: flex-start;
+  }
+
+  .photo-secondary {
+    max-height: 360px;
+  }
+
+  .project-feature-image {
+    min-height: 240px;
+  }
+
+  .image-placeholder {
+    min-height: 216px;
+  }
+
+  .project-feature-copy {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  nav {
+    padding: 14px 20px;
+  }
+
+  .hero-row {
+    gap: 28px;
+  }
+
+  .photo-hero {
+    width: 180px;
+    height: 180px;
+    margin-left: 0;
+  }
+
+  .project-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
