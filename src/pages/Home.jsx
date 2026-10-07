@@ -8,7 +8,7 @@ export default function Home() {
         <div className="hero-text">
           <div className="eyebrow">Morgan State University - Computer Science</div>
           <h1 className="hero">Zori Greene</h1>
-          <p className="lead">Welcome to the site. feel free to look around at some projects</p>
+          <p className="lead">Developing, researching, learning</p>
         </div>
         <Photo variant="photo-hero" src="/images/cover.jpg" alt="Zori Greene" />
       </section>
@@ -66,7 +66,7 @@ export default function Home() {
             <div className="project-meta">Blender · Arduino · C</div>
             <h3>3D Printed Tricopter</h3>
             <p>
-              My favorite project to date. Currently still in progress, but it flies!
+              3D printed tricopter designed in Blender and run using a Teensy 4.0 powered by Arduino software. Built for long distance and high flight times.
             </p>
             <button className="learn-more">View project →</button>
           </div>

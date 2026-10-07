@@ -18,8 +18,11 @@ export default function ProjectDetail({ project, onBack }) {
             disable-pan
             interaction-prompt="none"
             shadow-intensity="1"
-            environment-image="/environments/studio.hdr"
-            exposure="1.2"
+            shadow-softness="0.5"
+            tone-mapping="neutral"
+            environment-image="neutral"
+            exposure="0.1"
+            camera-orbit="0deg 75deg 60%"
             style={{ backgroundColor: 'transparent' }}
           ></model-viewer>
         </div>
