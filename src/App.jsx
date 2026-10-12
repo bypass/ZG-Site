@@ -20,7 +20,16 @@ export default function App() {
   if (page === 'Projects' && activeProject) {
     const project = PROJECTS.find((p) => p.id === activeProject)
     content = <ProjectDetail project={project} onBack={() => setActiveProject(null)} />
-  } else if (page === 'Home') content = <Home />
+  } else if (page === 'Home') {
+    content = (
+      <Home
+        onViewProject={(projectId) => {
+          setActiveProject(projectId)
+          setPage('Projects')
+        }}
+      />
+    )
+  }
   else if (page === 'Projects') content = <Projects onSelect={setActiveProject} />
   else if (page === 'Resume') content = <Resume />
   else content = <About />

@@ -25,6 +25,10 @@ export const PROJECTS = [
       "Soldering electronic components to boards for custom wiring setups.",
       "Designing & 3D printing the body of a Tricopter in Blender.",
     ],
+    images: [
+      { src: "images/IMG_0116.jpg", alt: "The tricopter frame" },
+      { src: "images/IMG_0116.jpg", alt: "3D Printed Tricopter" },
+    ],
   },
   {
     id: "discord-bot",

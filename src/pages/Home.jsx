@@ -1,7 +1,8 @@
 import Photo from '../components/Photo.jsx'
-import { SKILLS } from '../data/content.js'
+import { LINKS } from '../data/content.js'
+import { asset } from '../utils.js'
 
-export default function Home() {
+export default function Home({ onViewProject }) {
   return (
     <>
       <section className="hero-row">
@@ -9,40 +10,44 @@ export default function Home() {
           <div className="eyebrow">Morgan State University - Computer Science</div>
           <h1 className="hero">Zori Greene</h1>
           <p className="lead">Developing, researching, learning</p>
+          <div className="contact-row hero-contact">
+            {LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.label === 'Email' ? `mailto:${link.href}` : link.href}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
         <Photo variant="photo-hero" src="/images/cover.jpg" alt="Zori Greene" />
       </section>
 
-      <div className="skills home-skills">
-        {SKILLS.map((s) => <span key={s}>{s}</span>)}
-      </div>
+      <hr className="divider-top" />
 
-      <hr className="divider" />
-
-      <section className="intro-section">
-        <div>
-          <div className="section-kicker">A little about me</div>
-          <h2>Curious, creative, and always building.</h2>
-        </div>
-        <p className="bio">
-          I’m a computer science student who enjoys turning ideas into thoughtful,
-          useful digital experiences. I like learning new tools, experimenting with
-          projects, and finding the details that make a website feel personal.
-        </p>
-      </section>
-
-      <section className="about-card">
-        <div className="photo photo-secondary">
-          <img src="/images/skate thing.jpg" alt="Zori Greene skating" />
-        </div>
-        <div className="about-copy">
-          <div className="section-kicker">Beyond the screen</div>
-          <p>
-            Outside of staring at a screen all day I also love to skateboard and make music, film, and edit videos.
-          </p>
-          <div className="section-kicker additional-skills-kicker">Additional Skills</div>
-          <div className="skills home-skills-inline">
-            {['Blender', 'FL Studio', 'Adobe Premiere'].map((skill) => <span key={skill}>{skill}</span>)}
+      <section className="work-exp">
+        <div className="work-exp-item">
+          <div className="section-kicker">01 / Experience</div>
+          <h2>Work Experience</h2>
+          <div className="work-exp-list">
+            <article className="work-exp-content">
+              <div className="hax-logo-wrap">
+                <img className="work-exp-logo" src={asset('images/HAX Lab logo.png')} alt="HAX Lab logo" />
+              </div>
+              <div>
+                <h3>Human AI-eXperience (HAX) Lab, Morgan State University</h3>
+                <p className="work-exp-org">Researcher</p>
+              </div>
+            </article>
+            <article className="work-exp-content">
+              <div className="cn-logo-wrap">
+                <img className="work-exp-logo" src={asset('images/Code Ninjas Logo.jpg')} alt="Code Ninjas logo" />
+              </div>
+              <div>
+                <h3>Code Ninjas</h3>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -52,7 +57,7 @@ export default function Home() {
       <section className="favorite-project">
         <div className="project-heading">
           <div>
-            <div className="section-kicker">01 / Favorite project</div>
+            <div className="section-kicker">02 / Favorite project</div>
             <h2>Featured Project</h2>
           </div>
           <span className="project-label">Selected work</span>
@@ -68,8 +73,32 @@ export default function Home() {
             <p>
               3D printed tricopter designed in Blender and run using a Teensy 4.0 powered by Arduino software. Built for long distance and high flight times.
             </p>
-            <button className="learn-more">View project →</button>
+            <button
+              className="learn-more"
+              onClick={() => onViewProject('3d-printed-tricopter')}
+            >
+              View project →
+            </button>
           </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="about-card">
+        <div className="about-heading">
+          <div className="section-kicker">
+            Me Beyond the the screen
+            </div>
+          <h2>Curious, creative, and still building.</h2>
+          <div className="about-copy about-card-copy">
+            <p>
+              Outside of staring at a screen all day I also love to skateboard and make music, film, and edit videos.
+            </p>
+          </div>
+        </div>
+        <div className="photo photo-secondary">
+          <video src="\Videos\ATL DAYS preview - Trim.mp4" alt="ATL Days" />
         </div>
       </section>
     </>
