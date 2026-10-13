@@ -35,17 +35,28 @@ export default function Home({ onViewProject }) {
               <div className="hax-logo-wrap">
                 <img className="work-exp-logo" src={asset('images/HAX Lab logo.png')} alt="HAX Lab logo" />
               </div>
-              <div>
+              <div className="exp-details">
                 <h3>Human AI-eXperience (HAX) Lab, Morgan State University</h3>
-                <p className="work-exp-org">Researcher</p>
+                <p className="work-exp-org">AI Researcher</p>
+                <ul id="work-exp-bullets">
+                  <li>Lead a team using Brain Computer Interface (BCI) technology, and demonstrated its applications.</li>
+                  <li>Developed an ASL to English translation model using Electromiography (EMG) data.</li>
+                  <li>Built a web chatbot for skateboarding knowledge and image generation, using gemini.</li>
+                </ul>
               </div>
             </article>
             <article className="work-exp-content">
               <div className="cn-logo-wrap">
                 <img className="work-exp-logo" src={asset('images/Code Ninjas Logo.jpg')} alt="Code Ninjas logo" />
               </div>
-              <div>
-                <h3>Code Ninjas</h3>
+              <div className="exp-details">
+                <h3>Code Ninjas, Atlanta Georgia</h3>
+                <p className="work-exp-org">Teacher</p>
+                <ul id="work-exp-bullets">
+                  <li>Delivered hands-on lessons to grade school students through interactive games developed in Java.</li>
+                  <li>Guided students K-12 through beginner circuit projects in robotics.</li>
+                  <li>Evaluated students' games developed in Java and provide constructive feedback.</li>
+                </ul>
               </div>
             </article>
           </div>
@@ -98,7 +109,7 @@ export default function Home({ onViewProject }) {
           </div>
         </div>
         <div className="photo photo-secondary">
-          <video src="\Videos\ATL DAYS preview - Trim.mp4" alt="ATL Days" />
+          <img src="\images\skate thing.jpg" alt="me skateboarding" />
         </div>
       </section>
     </>
